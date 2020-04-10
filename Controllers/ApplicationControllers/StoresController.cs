@@ -25,6 +25,15 @@ namespace gurleenProject.Controllers.ApplicationControllers
             return View(await _context.Store.ToListAsync());
         }
 
+        public ActionResult GetList()
+        {
+            using (ApplicationDbContext db = new ApplicationDbContext())
+            {
+                var storeList = db.Store.ToList<Store>();
+                return Json(storeList, new Newtonsoft.Json.JsonSerializerSettings());
+            }
+        }
+
         // GET: Stores/Details/5
         public async Task<IActionResult> Details(int? id)
         {

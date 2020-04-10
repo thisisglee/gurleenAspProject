@@ -5,12 +5,13 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<table class="table">
+<table class="table" id="tblTravels">
     <thead>
         <tr>
             <th>
@@ -32,29 +33,32 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.StoreName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocationFrom)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LocationTo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Store.Description)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.TravelId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.TravelId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.TravelId">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StoreName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationFrom)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LocationTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Store.Description)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.TravelId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.TravelId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TravelId">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+
+
