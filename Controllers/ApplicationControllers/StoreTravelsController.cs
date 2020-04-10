@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using gurleenProject.Data;
 using gurleenProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace gurleenProject.Controllers.ApplicationControllers
 {
+    [Authorize]
     public class StoreTravelsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -46,6 +48,7 @@ namespace gurleenProject.Controllers.ApplicationControllers
         }
 
         // GET: StoreTravels/Create
+        [Authorize(Roles = "Admin,Store")]
         public IActionResult Create()
         {
             ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "Description");
@@ -57,6 +60,7 @@ namespace gurleenProject.Controllers.ApplicationControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Store")]
         public async Task<IActionResult> Create([Bind("TravelId,StoreId,StoreName,LocationFrom,LocationTo,Description")] StoreTravel storeTravel)
         {
             if (ModelState.IsValid)
@@ -70,6 +74,7 @@ namespace gurleenProject.Controllers.ApplicationControllers
         }
 
         // GET: StoreTravels/Edit/5
+        [Authorize(Roles = "Admin,Store")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -91,6 +96,7 @@ namespace gurleenProject.Controllers.ApplicationControllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Store")]
         public async Task<IActionResult> Edit(int id, [Bind("TravelId,StoreId,StoreName,LocationFrom,LocationTo,Description")] StoreTravel storeTravel)
         {
             if (id != storeTravel.TravelId)
@@ -122,6 +128,7 @@ namespace gurleenProject.Controllers.ApplicationControllers
             return View(storeTravel);
         }
 
+        [Authorize(Roles = "Admin,Store")]
         // GET: StoreTravels/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
@@ -142,6 +149,7 @@ namespace gurleenProject.Controllers.ApplicationControllers
         }
 
         // POST: StoreTravels/Delete/5
+        [Authorize(Roles = "Admin,Store")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

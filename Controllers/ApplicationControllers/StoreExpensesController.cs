@@ -7,9 +7,11 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using gurleenProject.Data;
 using gurleenProject.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace gurleenProject.Controllers
 {
+    [Authorize]
     public class StoreExpensesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -46,6 +48,7 @@ namespace gurleenProject.Controllers
         }
 
         // GET: StoreExpenses/Create
+        [Authorize(Roles = "Admin,Store")]
         public IActionResult Create()
         {
             ViewData["StoreId"] = new SelectList(_context.Store, "StoreId", "Description");
@@ -57,6 +60,7 @@ namespace gurleenProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Store")]
         public async Task<IActionResult> Create([Bind("ExpenseId,StoreId,StoreName,TotalExpense,Description")] StoreExpense storeExpense)
         {
             if (ModelState.IsValid)
@@ -70,6 +74,7 @@ namespace gurleenProject.Controllers
         }
 
         // GET: StoreExpenses/Edit/5
+        [Authorize(Roles = "Admin,Store")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -91,6 +96,7 @@ namespace gurleenProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin,Store")]
         public async Task<IActionResult> Edit(int id, [Bind("ExpenseId,StoreId,StoreName,TotalExpense,Description")] StoreExpense storeExpense)
         {
             if (id != storeExpense.ExpenseId)
@@ -123,6 +129,7 @@ namespace gurleenProject.Controllers
         }
 
         // GET: StoreExpenses/Delete/5
+        [Authorize(Roles = "Admin,Store")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -142,6 +149,7 @@ namespace gurleenProject.Controllers
         }
 
         // POST: StoreExpenses/Delete/5
+        [Authorize(Roles = "Admin,Store")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
