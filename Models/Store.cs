@@ -1,4 +1,5 @@
-﻿using System;
+﻿using gurleenProject.Models;
+using System;
 using System.Collections.Generic;
 
 namespace gurleenProject.Models
