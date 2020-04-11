@@ -41,6 +41,20 @@ Use the latest Visual Studio and Open Project Solution.
 
 ## Snapshots of Website
 
+![Capture1](https://user-images.githubusercontent.com/42320689/79030764-b57e7400-7b68-11ea-8501-01f0a04500a2.JPG)
+
+### Link only available to ADMIN
+![Capture2](https://user-images.githubusercontent.com/42320689/79030765-b57e7400-7b68-11ea-94db-246b9ff562bc.JPG)
+
+### Delete Role Option
+![Capture4](https://user-images.githubusercontent.com/42320689/79030767-b6170a80-7b68-11ea-854d-96bdef6612af.JPG)
+
+### Table View
+![Capture5](https://user-images.githubusercontent.com/42320689/79030768-b6170a80-7b68-11ea-90d6-1d94fb89e2dd.JPG)
+
+### Access Denied to Accountant for Create, Update, Delete only Read
+![Capture6](https://user-images.githubusercontent.com/42320689/79030763-b4e5dd80-7b68-11ea-9510-a9ddd016a584.JPG)
+
 # Watch my demonstraion of live Project
 
 link- 
