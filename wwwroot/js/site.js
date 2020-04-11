@@ -3,7 +3,7 @@
 
 // Write your JavaScript code.
 $('.carousel').carousel({
-    interval: 2000
+    interval: 4000
 })
 
 function confirmDelete(uniqueId, isTrue) {

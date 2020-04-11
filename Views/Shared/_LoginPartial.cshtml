@@ -1,8 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
-IList<string>
-    roles = await _signInManager.UserManager.GetRolesAsync(user);
+
 
     <ul class="navbar-nav">
         @if (SignInManager.IsSignedIn(User))
