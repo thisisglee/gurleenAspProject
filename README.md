@@ -1,6 +1,5 @@
 # Netech Cabling
 ### Gurleen Singh
-#### 200356784
 
 Netech Cabling Inc is a trusted cabling and structured networking solution provider located in Brampton that is proudly assisting businesses with a wide range of audio, video, security, fiber optics and data center services. 
 
